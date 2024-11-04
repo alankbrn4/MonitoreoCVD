@@ -1,10 +1,13 @@
 import sqlite3
 import pandas as pd
 from datetime import datetime
+import os
 
 class DataBase:
     def __init__(self, db_path: str):
         self.db_path = db_path
+        # Crear el directorio si no existe
+        os.makedirs(os.path.dirname(self.db_path), exist_ok=True)
         self.inicializar_db()
         
     def inicializar_db(self):
